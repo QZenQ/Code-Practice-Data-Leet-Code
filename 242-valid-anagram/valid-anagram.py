@@ -5,14 +5,19 @@ class Solution:
 
         freq = {}
 
-        for i in range(len(s)):
-            freq[s[i]] = freq.get(s[i], 0) + 1
-
+        
         for i in range(len(t)):
-            if(t[i] in freq):
-                freq[t[i]] -= 1
-                if(freq[t[i]] <= 0):
-                    del freq[t[i]]
+            
+            freq[s[i]] = freq.get(s[i], 0) + 1
+            print(freq[s[i]])
+            freq[t[i]] = freq.get(t[i], 0) - 1
+            print(freq[t[i]])
+
+            if(t[i] in freq and freq.get(t[i], 0) == 0):
+                del freq[t[i]]
+
+            if(s[i] in freq and freq.get(s[i], 0) == 0):
+                del freq[s[i]]                
 
         if(len(freq) > 0): return False
         return True                    
