@@ -1,28 +1,15 @@
-class Solution:
-    def rotate(self, matrix: List[List[int]]) -> None:
+class Solution(object):
+    def rotate(self, matrix):
         """
-        Do not return anything, modify matrix in-place instead.
+        :type matrix: List[List[int]]
+        :rtype: None Do not return anything, modify matrix in-place instead.
         """
-
-
-        layer = 0
+        
         n = len(matrix)
-        while layer < n//2:
-            first = layer
-            last = n - 1 - layer
 
-            for i in range(first, last):
-                offset = i - first
+        for i in range(n):
+            for j in range(i+1,n):
+                matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
 
-                top = matrix[first][i]
-
-                #top
-                matrix[first][i] = matrix[last - offset][first]
-                #left
-                matrix[last - offset][first] = matrix[last][last - offset]
-                #bottom
-                matrix[last][last - offset] = matrix[i][last]
-                #right
-                matrix[i][last] = top
-
-            layer +=1
+        for row in matrix:
+            row.reverse()                
