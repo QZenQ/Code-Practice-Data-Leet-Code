@@ -22,18 +22,18 @@ class Solution:
 
         mid = ln
         if(fast == None):
-            #print(ln)            
+            print(ln)            
             ln = ln * 2
-            #print(ln)
+            print(ln)
         else:
-            #print(ln)
+            print(ln)
             ln = ln * 2 + 1
-            #print(ln)
+            print(ln)
 
             
-        target =  ln - n
+        target =  ln - n + 1
 
-        #print(target)
+        print(target)
 
         count = 0
         si = None
@@ -48,7 +48,7 @@ class Solution:
         si = buffer
         count = 0
         while si:
-            if count == target:
+            if count == target -1:
                 
                 si.next = si.next.next
             
