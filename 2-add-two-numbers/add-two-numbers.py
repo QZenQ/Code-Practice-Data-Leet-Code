@@ -15,7 +15,7 @@ class Solution:
                 l1 = l1.next
 
             if(l2 != None):
-                num1 = (l2.val * mp) + num1 
+                num2 = (l2.val * mp) + num2 
                 l2 = l2.next
 
             if(l1 == None and l2 == None):
