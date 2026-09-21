@@ -20,15 +20,14 @@ class Solution:
             Aptr = Aptr.next
             Bptr = Bptr.next
 
+            if(Aptr == Bptr == None): return None
             
             if(Aptr == None):
-                if(changedA):return None
                 Aptr = headB
-                changedA = True
-            if(Bptr == None): 
-                if(changedB):return None
+                
+            if(Bptr == None):                 
                 Bptr = headA
-                changedB = True
+              
 
 
         return None
