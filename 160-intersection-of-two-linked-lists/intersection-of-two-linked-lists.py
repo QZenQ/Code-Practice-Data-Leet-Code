@@ -10,9 +10,6 @@ class Solution:
         Aptr = headA
         Bptr = headB
 
-        changedA =False
-        changedB =False
-
         while True:
             
             if(Aptr == Bptr): return Aptr
