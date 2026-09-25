@@ -42,24 +42,31 @@ class MyQueue:
          
 
     def push(self, x: int) -> None:
-        while(not self.Stack2.empty()):
-            self.Stack1.push(self.Stack2.pop())
-
+        
         self.Stack1.push(x)
 
-        while(not self.Stack1.empty()):
-            self.Stack2.push(self.Stack1.pop())
+        
 
         
     def pop(self) -> int:
+
+        if self.Stack2.empty():
+            while(not self.Stack1.empty()):
+                self.Stack2.push(self.Stack1.pop())
+
         return self.Stack2.pop()
         
 
     def peek(self) -> int:
+        if self.Stack2.empty():
+            while(not self.Stack1.empty()):
+                self.Stack2.push(self.Stack1.pop())
+            
         return self.Stack2.peek()
 
     def empty(self) -> bool:
-        return self.Stack2.empty()
+        return self.Stack2.empty() and self.Stack1.empty()
+
         
 
     
