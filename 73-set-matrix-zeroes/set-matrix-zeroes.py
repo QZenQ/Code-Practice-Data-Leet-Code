@@ -1,22 +1,29 @@
 class Solution:
-    def setZeroes(self, matrix: List[List[int]]) -> None:
+    def setZeroes(self, matrix: list[list[int]]) -> None:
         """
         Do not return anything, modify matrix in-place instead.
         """
-        vr, vc, qr, qc = [], [], [], []
+        isFirstColZero = False
 
-        for i in range(len(matrix)):
-            for j in range(len(matrix[0])):
-                if(matrix[i][j] == 0):
-                    if(i not in qr): qr.append(i)
-                    if(j not in qc): qc.append(j)
+        for row in range(len(matrix)):
 
-        while(qr):       
-            row = qr.pop(0)
-            for i in range(len(matrix[0])):
-                matrix[row][i] = 0
+            if(matrix[row][0] == 0): isFirstColZero = True
 
-        while(qc):       
-            col = qc.pop(0)
-            for i in range(len(matrix)):
-                matrix[i][col] = 0
+            for col in range(1, len(matrix[0])):
+                if(matrix[row][col] == 0):
+                    matrix[row][0] = 0
+                    matrix[0][col] = 0
+
+        for row in matrix:
+            print(*row)
+
+        for row in range(len(matrix) - 1, -1, -1):
+            for col in range(1, len(matrix[0])):
+                if(matrix[row][0] == 0 or matrix[0][col] == 0):
+                    matrix[row][col] = 0
+            if(isFirstColZero): matrix[row][0] = 0
+
+        for row in matrix:
+            print(*row)
+            
+        
