@@ -10,16 +10,11 @@ class Solution:
         dummy.next = head
         fp = dummy
         sp = dummy
-        if(head.next == None): return None
-
+                
         for i in range(0, n):           
             fp = fp.next
-
-        print(fp.val)
-        print(sp.val)
-     
-        while fp != None and fp.next != None:
-            print("data")
+       
+        while fp != None and fp.next != None:            
             fp = fp.next
             sp = sp.next
         
