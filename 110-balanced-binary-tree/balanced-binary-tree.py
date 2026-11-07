@@ -14,17 +14,21 @@ class Solution:
                 return 0
 
             h1 = depthDiff(node.left)
+
+            if(h1 == -1):return -1
+
             h2 = depthDiff(node.right)
 
+            if h2 == -1: return -1
+
             if(abs(h1 - h2)>1):
-                Solution.found = False
-                print(abs(h1 - h2))
+                return -1
              
             return max(h1, h2) + 1
 
         if not root:
             return True    
-        Solution.found = True
-        depthDiff(root)
+        
+        return depthDiff(root) != -1
 
-        return Solution.found
+        
