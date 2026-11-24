@@ -6,10 +6,7 @@ class Solution:
             hp = nums[nums[hp]]
             tp = nums[tp]
 
-            if(nums[tp] == nums[hp] and tp == hp):
-                print(tp)
-                print(" ")
-                print(hp)
+            if(tp == hp):                
                 break
 
         tp = 0
